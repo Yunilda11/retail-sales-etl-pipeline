@@ -1,0 +1,27 @@
+import pandas as pd
+import sqlite3
+
+# Load Excel data
+df = pd.read_excel('sales_data.xlsx')  # Make sure your Excel file matches this name
+
+# Calculate additional columns
+df['Revenue'] = df['Quantity'] * df['Price']
+df['Cost'] = df['Quantity'] * df['Cost_per_Item']
+df['Profit'] = df['Revenue'] - df['Cost']
+
+# Save to SQLite database
+conn = sqlite3.connect('sales.db')
+df.to_sql('sales_data', conn, if_exists='replace', index=False)
+
+# Query the data
+query = '''
+SELECT Product, SUM(Profit) AS Total_Profit
+FROM sales_data
+GROUP BY Product
+ORDER BY Total_Profit DESC;
+'''
+
+result = pd.read_sql(query, conn)
+print(result)
+
+conn.close()
