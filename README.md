@@ -31,6 +31,6 @@ SELECT Product, SUM(Profit) AS Total_Profit
 FROM sales_data
 GROUP BY Product
 ORDER BY Total_Profit DESC;
-## 🔗 Excel Dashboard Link
 
-📊 [View Retail Sales Analysis Excel File on OneDrive](https://1drv.ms/x/c/ed2d6b1a350e6461/EWqwr9gjiz9OlBcmrW8U2tABVlrRs1f_pMQzy4A04Kh1xQ)
+## 🔗 Excel Dashboard Link
+ [View Retail Sales Analysis Excel File on OneDrive](https://1drv.ms/x/c/ed2d6b1a350e6461/EWqwr9gjiz9OlBcmrW8U2tABVlrRs1f_pMQzy4A04Kh1xQ)
